@@ -4,10 +4,10 @@ pipeline {
         stage ('Build Servlet Project') {
             steps {
                 /*For windows machine */
-               //bat  'mvn clean package'
+               bat  'mvn clean package'
 
                 /*For Mac & Linux machine */
-                sh  'mvn clean package'
+                 //sh  'mvn clean package'
             }
 
             post{
@@ -21,9 +21,9 @@ pipeline {
 
         stage ('Create Tomcat Docker Image') {
             steps{
-                sh "docker build . -t tomcatwebapp:${env.BUILD_ID}"
+                //sh "docker build . -t tomcatwebapp:${env.BUILD_ID}"
 
-                //bat "docker build . -t tomcatwebapp:${$env.BUILD_ID}"
+                bat "docker build . -t tomcatwebapp:${env.BUILD_ID}"
 
             }
         }
